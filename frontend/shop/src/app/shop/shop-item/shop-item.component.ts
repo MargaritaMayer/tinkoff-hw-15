@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Candle } from 'src/shared/interfaces/Candle';
 
 @Component({
   selector: 'app-shop-item',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./shop-item.component.less']
 })
 export class ShopItemComponent {
+  @Input()
+  candle : Candle | null = null;
 
 }
