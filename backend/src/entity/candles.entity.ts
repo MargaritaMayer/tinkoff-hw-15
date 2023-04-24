@@ -8,7 +8,8 @@ export class CandlesEntity extends BaseEntity {
     id: number;
 
     @Column({
-        type: 'character varying'
+        type: 'character varying',
+        length: 255,
     })
     title: string;
 
@@ -18,7 +19,9 @@ export class CandlesEntity extends BaseEntity {
     price: number;
 
     @Column({
-        type: 'character varying'
+        type: 'character varying',
+        length: 255,
+        nullable: true,
     })
-    imgPath: string;
+    img_path: string | null;
 }

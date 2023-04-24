@@ -1,15 +1,17 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { CandlesEntity } from '../entity/candles.entity';
-// import { InMemoryDBService } from '@nestjs-addons/in-memory-db';
+import {InjectRepository} from '@nestjs/typeorm';
+import {Repository} from 'typeorm';
 
 @Controller()
 export class CandlesController {
-//   constructor(private dbService: InMemoryDBService<CandlesEntity>) 
+    @InjectRepository(CandlesEntity)
+    protected readonly entitiesRepository: Repository<CandlesEntity>;
 
-//   @Get()
-//   getAll(): CandlesEntity[] {
-//     // return this.dbService.getAll();
-//   }
+    @Get()
+    getAll(): Promise<CandlesEntity[]> {
+        return this.entitiesRepository.find();
+    }
 }
 
 
