@@ -1,0 +1,20 @@
+<div class="cart-item">
+    <div class="cart-item-wrap">
+        <div class="wrap-img">
+            <img class="cart-item__img" src="{{cartItem?.imgPath}}">
+        </div>
+        <div class="cart-item__info">
+            <p class="cart-item__title">Свеча {{cartItem?.title}}</p>
+            
+            <span class="link" (click)="delete()">Удалить</span>
+            
+        </div>
+    </div>
+    
+    <p class="cart-item__info cart-item__price">{{cartItem?.price}} рублей/шт.</p>
+    <app-shop-counter-wrapper 
+        (countEvent)="changeCount($event)"
+        class="cart-item__counter"
+        [count]="cartItem?.count ?? 1"></app-shop-counter-wrapper>
+   
+</div>
