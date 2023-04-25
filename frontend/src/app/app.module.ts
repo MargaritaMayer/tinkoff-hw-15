@@ -11,8 +11,6 @@ import { ShopButtonComponent } from './shop/shop-button/shop-button.component';
 import { ShopFooterComponent } from './shop/shop-footer/shop-footer.component';
 import { CandlesApiService } from 'src/shared/services/candlesApi.service';
 import { ICandlesApiServiceToken } from 'src/shared/interfaces/ICandlesApiService';
-import { ICartItemsApiServiceToken } from 'src/shared/interfaces/ICartItemsApiService';
-import { CartItemsApiService } from 'src/shared/services/cartItemsApi.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -32,7 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     {provide: ICandlesApiServiceToken, useClass: CandlesApiService}, 
-    {provide: ICartItemsApiServiceToken, useClass: CartItemsApiService}
   ],
   bootstrap: [AppComponent],
   

@@ -3,7 +3,7 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 @Entity('candles')
 export class CandlesEntity extends BaseEntity {
     @PrimaryGeneratedColumn({
-        type: 'bigint'
+        type: 'integer',
     })
     id: number;
 
@@ -14,7 +14,7 @@ export class CandlesEntity extends BaseEntity {
     title: string;
 
     @Column({
-        type: 'bigint' 
+        type: 'integer',
     })
     price: number;
 

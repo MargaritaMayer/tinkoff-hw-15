@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { CartItem, IdCount } from 'src/shared/interfaces/Candle';
 import { ShopCartItemComponent } from './shop-cart-item/shop-cart-item.component';
+import { Candle } from 'src/shared/interfaces/Candle';
+import { CartItem } from 'src/shared/interfaces/CartItem';
 
 @Component({
   selector: 'app-shop-cart',
@@ -12,19 +13,26 @@ export class ShopCartComponent {
   public cartItems: CartItem[] | null = [];
 
   @Input()
+  public candles: Candle[] | null = [];
+
+  @Input()
   public sum: number = 0;
   
   @Output()
   public deleteEvent = new EventEmitter<number>();
 
   @Output()
-  public countEvent = new EventEmitter<IdCount>();
+  public countEvent = new EventEmitter<CartItem>();
 
   public deleteItem(id: number) {
     this.deleteEvent.emit(id);
   }  
   
-  public changeCount(idCount: IdCount) {  
-    this.countEvent.emit(idCount);
+  public changeCount(cartItem: CartItem) {  
+    this.countEvent.emit(cartItem);
+  }
+
+  public getCandle(cartItem: CartItem) {
+    return this.candles?.find(candle => candle.id === cartItem.candleId)
   }
  }

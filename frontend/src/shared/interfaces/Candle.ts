@@ -1,15 +1,10 @@
 export interface Candle {
-    title: string;
-    price: number;
-    imgPath: string;
-    isInStock?: boolean;    // в наличии
-  }
-  export interface CartItem extends Candle {
-    count: number;
-    id: number;
-  }
+  id: number;
+  title: string;
+  price: number;
+  img_path: string;
+}
 
-  export interface IdCount {
-    count: number;
-    id: number;
-  }
+
+ 
+ 

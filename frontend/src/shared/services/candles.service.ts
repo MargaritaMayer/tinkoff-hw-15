@@ -5,20 +5,21 @@ import { ICandlesApiService, ICandlesApiServiceToken } from "../interfaces/ICand
   
 @Injectable({providedIn: 'root'})
 export class CandlesService{
+    constructor(@Inject(ICandlesApiServiceToken) public candlesService: ICandlesApiService ) {}
 
     private _candles: Candle[] = [];
-
-    constructor(@Inject(ICandlesApiServiceToken) public candlesService: ICandlesApiService ) {
-    }   
-    get candles(): Candle[] {
+      
+    public get candles(): Candle[] {
         return this._candles;
     }
 
-    initialize(): void {
+    public initialize(): void {
         this.candlesService.getAll().subscribe((candles: Candle[]) => {
         this._candles = candles;
         })
     }
-}
 
-  
+    public getCandleById(id: number) {
+        return this._candles.find(c => c.id === id);
+    }
+}

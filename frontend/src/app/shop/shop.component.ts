@@ -1,11 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { Candle, CartItem, IdCount } from 'src/shared/interfaces/Candle';
+import { Candle} from 'src/shared/interfaces/Candle';
+import { CartItem } from 'src/shared/interfaces/CartItem';
 import { CandlesService } from 'src/shared/services/candles.service';
-import { CartItemsService } from 'src/shared/services/cartItems.service';
-
-
-
-const dataCart: CartItem[] = []; 
+import { CartService } from 'src/shared/services/cart.service';
 
 @Component({
   selector: 'app-shop',
@@ -16,36 +13,35 @@ const dataCart: CartItem[] = [];
 
 export class ShopComponent implements OnInit{
 
-  public isShowCandlesList: boolean = true;
+  public isShowCandles: boolean = true;
 
   constructor(
-    public cartItemsService: CartItemsService,
-    public candlesService: CandlesService
+    public candlesService: CandlesService,
+    public cartService: CartService,
   ) {}
 
   ngOnInit(): void {
-    this.cartItemsService.initialize();
     this.candlesService.initialize();
   }
 
-  addCartItem(newItem: CartItem): void {
-    this.isShowCandlesList = false;
-    this.cartItemsService.addCartItem(newItem);
+  addCartItem(item: CartItem): void {
+    this.isShowCandles = false;
+    this.cartService.addCartItem(item);
   }
 
   public showCandles(): void {
-    this.isShowCandlesList = true;
+    this.isShowCandles = true;
   }
 
   public hideCandles(): void {
-    this.isShowCandlesList = false;
+    this.isShowCandles = false;
   }
 
   public deleteCartItem(id: number): void {
-    this.cartItemsService.delete(id);
+    this.cartService.deleteItem(id);
   } 
   
-  public updateCartItem(idCount: IdCount){
-    this.cartItemsService.updateCount(idCount.id, idCount.count);
+  public updateCartItem(cartItem: CartItem){
+    this.cartService.updateCount(cartItem);
   } 
 }

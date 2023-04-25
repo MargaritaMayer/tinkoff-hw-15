@@ -5,5 +5,4 @@ import { Candle } from "./Candle";
 export const ICandlesApiServiceToken = new InjectionToken('ICandlesApiServiceToken');
 export interface ICandlesApiService{
     getAll(): Observable<Candle[]>;
-    // update(candle: Candle): Observable<void>;
 }

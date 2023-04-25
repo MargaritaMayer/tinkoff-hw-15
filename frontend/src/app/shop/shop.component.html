@@ -15,17 +15,18 @@
         </div>
     </header> 
     <div class="container">
-        <div class="store-flex" [hidden]="!isShowCandlesList">
+        <div class="store-flex" [hidden]="!isShowCandles">
             <app-shop-item class="app-shop-item"
                 *ngFor="let c of candlesService.candles" 
                 [candle]="c"
-                (clickAddCandle) = "addCartItem($event)"  
+                (clickAddCartItem) = "addCartItem($event)"  
             ></app-shop-item>
         </div>
         <app-shop-cart 
-            [hidden]="isShowCandlesList"
-            [cartItems]="cartItemsService.cartItems"
-            [sum]="cartItemsService.summary"
+            [hidden]="isShowCandles"
+            [candles]="candlesService.candles"
+            [cartItems]="cartService.cartItems"
+            [sum]="cartService.summary"
             (deleteEvent)="deleteCartItem($event)"
             (countEvent)="updateCartItem($event)"
             >

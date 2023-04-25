@@ -1,17 +1,17 @@
 <div class="cart-item">
     <div class="cart-item-wrap">
         <div class="wrap-img">
-            <img class="cart-item__img" src="{{cartItem?.imgPath}}">
+            <img class="cart-item__img" src="{{candle?.img_path}}">
         </div>
         <div class="cart-item__info">
-            <p class="cart-item__title">Свеча {{cartItem?.title}}</p>
+            <p class="cart-item__title">Свеча {{candle?.title}}</p>
             
             <span class="link" (click)="delete()">Удалить</span>
             
         </div>
     </div>
     
-    <p class="cart-item__info cart-item__price">{{cartItem?.price}} рублей/шт.</p>
+    <p class="cart-item__info cart-item__price">{{candle?.price}} рублей/шт.</p>
     <app-shop-counter-wrapper 
         (countEvent)="changeCount($event)"
         class="cart-item__counter"

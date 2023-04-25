@@ -8,9 +8,9 @@ CREATE SEQUENCE public.candles_id_seq
 
 CREATE TABLE public.candles
 (
-    id bigint NOT NULL DEFAULT nextval('candles_id_seq'::regclass),
+    id integer NOT NULL DEFAULT nextval('candles_id_seq'::regclass),
     title character varying(255) NOT NULL,
-    price bigint NOT NULL,
+    price integer NOT NULL,
     img_path character varying(255),
     PRIMARY KEY (id)
 );

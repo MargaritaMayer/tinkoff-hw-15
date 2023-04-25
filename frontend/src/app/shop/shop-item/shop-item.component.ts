@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Candle, CartItem, IdCount } from 'src/shared/interfaces/Candle';
+import { Candle } from 'src/shared/interfaces/Candle';
+import { CartItem } from 'src/shared/interfaces/CartItem';
 
 @Component({
   selector: 'app-shop-item',
@@ -13,11 +14,11 @@ export class ShopItemComponent {
   public candle : Candle | null = null;
 
   @Output()
-  public clickAddCandle = new EventEmitter<CartItem>();  
+  public clickAddCartItem = new EventEmitter<CartItem>();  
 
   public hideCandles(): void {    
     if (this.candle) {
-      this.clickAddCandle.emit({...this.candle, count: this.count, id: 0});
+      this.clickAddCartItem.emit({candleId: this.candle.id, count: this.count});
       this.count = 1;
     }
   } 
