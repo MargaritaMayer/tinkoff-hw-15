@@ -1,0 +1,35 @@
+<div class="content">
+    <header class="header">
+        <div class="header__info">
+            <p class="header__text">БЕСПЛАТНАЯ ДОСТАВКА ДО ПУНКТА ВЫДАЧИ ОТ 7000 РУБ. | ВСЕ СВЕЧИ ИЗГОТАВЛИВАЕМ НА ЗАКАЗ ЗА 3 — 4 РАБОЧИХ ДНЯ</p>      
+        </div>
+        <div class="header__menu menu">
+            <ul class="menu__part menu__left">
+                <li class="menu__left-item link" (click)="showCandles()">К списку товаров</li>
+            </ul>
+            <p class="menu__logo logo link" (click)="showCandles()">THE CANDLES</p>
+            <ul class="menu__part menu__right">
+                <li class="menu__right-item link" (click)="hideCandles()">Корзина</li> 
+            </ul>
+        </div>
+    </header> 
+    <div class="container">
+        <div class="store-flex" [hidden]="!isShowCandles">
+            <app-shop-item class="app-shop-item"
+                *ngFor="let c of candlesService.candles" 
+                [candle]="c"
+                (clickAddCartItem) = "addCartItem($event)"  
+            ></app-shop-item>
+        </div>
+        <app-shop-cart 
+            [hidden]="isShowCandles"
+            [candles]="candlesService.candles"
+            [cartItems]="cartService.cartItems"
+            [sum]="cartService.summary"
+            (deleteEvent)="deleteCartItem($event)"
+            (countEvent)="updateCartItem($event)"
+            >
+        </app-shop-cart>    
+    </div>   
+    <app-shop-footer></app-shop-footer>
+</div>
