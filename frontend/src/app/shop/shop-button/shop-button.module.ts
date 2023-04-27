@@ -6,8 +6,6 @@ import { CommonModule } from '@angular/common';
     declarations: [
         ShopButtonComponent
     ],
-
-
     imports: [
         CommonModule,   
     ],

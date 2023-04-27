@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { ShopCartItemComponent } from './shop-cart-item/shop-cart-item.component';
-import { Candle } from 'src/shared/interfaces/candle';
-import { CartItem } from 'src/shared/interfaces/cart-Item';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Candle } from 'src/app/shared/interfaces/candle';
+import { CartItem } from 'src/app/shared/interfaces/cart-Item';
 
 @Component({
   selector: 'app-shop-cart',
@@ -16,7 +15,7 @@ export class ShopCartComponent {
   public candles: Candle[] | null = [];
 
   @Input()
-  public sum: number = 0;
+  public sum = 0;
   
   @Output()
   public deleteEvent = new EventEmitter<number>();

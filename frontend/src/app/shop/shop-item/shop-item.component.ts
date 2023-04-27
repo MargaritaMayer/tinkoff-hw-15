@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Candle } from 'src/shared/interfaces/candle';
-import { CartItem } from 'src/shared/interfaces/cart-Item';
+import { Candle } from 'src/app/shared/interfaces/candle';
+import { CartItem } from 'src/app/shared/interfaces/cart-Item';
 
 @Component({
   selector: 'app-shop-item',

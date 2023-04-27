@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { CartItem } from 'src/shared/interfaces/cart-Item';
-import { CandlesService } from 'src/shared/services/candles.service';
-import { CartService } from 'src/shared/services/cart.service';
+import { CartItem } from 'src/app/shared/interfaces/cart-Item';
+import { CandlesService } from 'src/app/shared/services/candles.service';
+import { CartService } from 'src/app/shared/services/cart.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { CartService } from 'src/shared/services/cart.service';
 
 export class ShopComponent implements OnInit {
 
-  public isShowCandles: boolean = true;
+  public isShowCandles = true;
 
   constructor(
     public candlesService: CandlesService,

@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ShopCounterWrapperComponent {
   @Input()
-  public count: number = 1;
+  public count = 1;
 
   @Output()
   public countEvent = new EventEmitter<number>();

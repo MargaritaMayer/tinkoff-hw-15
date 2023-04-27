@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { ShopCounterWrapperComponent } from './shop-counter-wrapper.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
         ShopCounterWrapperComponent
     ],
     imports: [
-        ShopCounterWrapperModule,   
+        CommonModule,   
     ],
     exports: [
         ShopCounterWrapperComponent,
