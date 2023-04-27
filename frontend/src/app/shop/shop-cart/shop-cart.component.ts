@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ShopCartItemComponent } from './shop-cart-item/shop-cart-item.component';
-import { Candle } from 'src/shared/interfaces/Candle';
-import { CartItem } from 'src/shared/interfaces/CartItem';
+import { Candle } from 'src/shared/interfaces/candle';
+import { CartItem } from 'src/shared/interfaces/cart-Item';
 
 @Component({
   selector: 'app-shop-cart',

@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@angular/core";
-import { Candle } from "../interfaces/Candle";
-import { ICandlesApiService, ICandlesApiServiceToken } from "../interfaces/ICandlesApiService";
+import { Candle } from "../interfaces/candle";
+import { ICandlesApiService, ICandlesApiServiceToken } from "../interfaces/i-candles-api-service";
 
   
 @Injectable({providedIn: 'root'})
@@ -19,7 +19,7 @@ export class CandlesService{
         })
     }
 
-    public getCandleById(id: number) {
+    public getCandleById(id: number): Candle | undefined {
         return this._candles.find(c => c.id === id);
     }
 }

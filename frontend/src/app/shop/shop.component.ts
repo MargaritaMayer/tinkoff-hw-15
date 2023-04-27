@@ -1,17 +1,18 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { Candle} from 'src/shared/interfaces/Candle';
-import { CartItem } from 'src/shared/interfaces/CartItem';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+
+import { CartItem } from 'src/shared/interfaces/cart-Item';
 import { CandlesService } from 'src/shared/services/candles.service';
 import { CartService } from 'src/shared/services/cart.service';
+
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
-  styleUrls: ['./shop.component.less']
+  styleUrls: ['./shop.component.less'],
 })
 
 
-export class ShopComponent implements OnInit{
+export class ShopComponent implements OnInit {
 
   public isShowCandles: boolean = true;
 
@@ -24,17 +25,17 @@ export class ShopComponent implements OnInit{
     this.candlesService.initialize();
   }
 
-  addCartItem(item: CartItem): void {
-    this.isShowCandles = false;
-    this.cartService.addCartItem(item);
-  }
-
   public showCandles(): void {
     this.isShowCandles = true;
   }
 
   public hideCandles(): void {
     this.isShowCandles = false;
+  }
+
+  addCartItem(item: CartItem): void {
+    this.cartService.addCartItem(item);
+    this.hideCandles();
   }
 
   public deleteCartItem(id: number): void {
@@ -44,4 +45,5 @@ export class ShopComponent implements OnInit{
   public updateCartItem(cartItem: CartItem){
     this.cartService.updateCount(cartItem);
   } 
+ 
 }

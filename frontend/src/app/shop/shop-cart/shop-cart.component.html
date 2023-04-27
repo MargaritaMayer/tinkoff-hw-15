@@ -5,7 +5,6 @@
         <app-shop-cart-item
             *ngFor="let item of cartItems" 
             [candle]="getCandle(item)"
-
             [cartItem]="item"
             (deleteEvent)="deleteItem($event)"
             (countEvent)="changeCount($event)"
@@ -14,7 +13,7 @@
     <div class="cart-payment">
         <div class="cart-payment__info">
             <p class="cart-payment__el">Общая стоимость</p>
-            <p class="cart-payment__el">{{sum}} р</p>
+            <p class="cart-payment__el">{{sum}} ₽</p>
         </div>  
         <form class="form"> 
             <input type="text" class="form__input" placeholder="адрес доставки" formControlName="adress">
@@ -22,8 +21,6 @@
             <input type="text" class="form__input" placeholder="email" formControlName="email">
             <app-shop-button text="Оплатить"></app-shop-button>
         </form>
-          
-    
     </div> 
 </div>
 

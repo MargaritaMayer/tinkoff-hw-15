@@ -1,8 +1,8 @@
 import { Observable } from "rxjs/internal/Observable";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { ICandlesApiService } from "../interfaces/ICandlesApiService";
-import { Candle } from "../interfaces/Candle";
+import { ICandlesApiService } from "../interfaces/i-candles-api-service";
+import { Candle } from "../interfaces/candle";
 
 const host = 'http://localhost:3000'
 

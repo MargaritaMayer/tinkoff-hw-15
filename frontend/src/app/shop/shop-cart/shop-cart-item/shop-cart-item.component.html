@@ -5,16 +5,12 @@
         </div>
         <div class="cart-item__info">
             <p class="cart-item__title">Свеча {{candle?.title}}</p>
-            
-            <span class="link" (click)="delete()">Удалить</span>
-            
+            <p class="link" (click)="delete()">Удалить</p>
         </div>
     </div>
-    
-    <p class="cart-item__info cart-item__price">{{candle?.price}} рублей/шт.</p>
+    <p class="cart-item__info cart-item__price">{{candle?.price}} ₽/шт.</p>
     <app-shop-counter-wrapper 
         (countEvent)="changeCount($event)"
         class="cart-item__counter"
         [count]="cartItem?.count ?? 1"></app-shop-counter-wrapper>
-   
 </div>
